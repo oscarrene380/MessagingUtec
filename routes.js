@@ -14,11 +14,13 @@ router.post('/send', (req, res) => {
         to: phone 
     })
     .then((message) => {
-        //console.log(message)
+        console.log(message)
+        /*
         if(message.status == 'accepted')
             res.redirect('/home/success/¡Mensaje enviado correctamente!');
         else
             res.redirect('/home/error/¡Error enviando mensaje, pruebe de nuevo y verifique los campos!');
+            */
     })
     .catch((err) => {
         res.redirect('/home/error/'+err.message);
@@ -28,7 +30,13 @@ router.post('/send', (req, res) => {
 
 
 router.post('/status', (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
+    if(req.body.SmsStatus == 'sent'){
+        res.redirect('/home/success/¡Mensaje enviado correctamente!');
+    }
+    else if(req.body.SmsStatus == 'failed'){
+        res.redirect('/home/error/¡Error enviando mensaje, pruebe de nuevo y verifique los campos!');
+    }
 });
 
 module.exports = router;
