@@ -10,7 +10,7 @@ router.post('/send', (req, res) => {
     client.messages.create({
         body: message,  
         messagingServiceSid: 'MG0906845bc26304d670dc941f22384c92',
-        statusCallback: 'https://messagingutec.herokuapp.com/send',
+        statusCallback: 'https://messagingutec.herokuapp.com/status',
         to: phone 
     })
     .then((message) => {
