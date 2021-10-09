@@ -14,7 +14,7 @@ router.post('/send', (req, res) => {
         to: phone 
     })
     .then((message) => {
-        console.log(message)
+        //console.log(message)
         if(message.status == 'accepted')
             res.redirect('/home/success/¡Mensaje enviado correctamente!');
         else
@@ -24,6 +24,11 @@ router.post('/send', (req, res) => {
         res.redirect('/home/error/'+err.message);
     })
     .done();
+});
+
+
+router.post('/status', (req, res) => {
+    console.log(req.body);
 });
 
 module.exports = router;
