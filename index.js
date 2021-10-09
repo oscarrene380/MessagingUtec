@@ -37,6 +37,10 @@ app.use(express.json());
 // Routes
 app.use(require('./routes'));
 
+app.get('/', (req, res) => {
+    res.redirect('/home');
+});
+
 app.get('/home', (req, res) => {
    res.render('home');
 });
