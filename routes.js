@@ -16,6 +16,7 @@ router.post('/send', (req, res) => {
         to: phone 
     })
     .then((message) => {
+        console.log(message)
         if(message.status == 'accepted')
             res.redirect('/home/success/¡Mensaje enviado correctamente!');
         else
